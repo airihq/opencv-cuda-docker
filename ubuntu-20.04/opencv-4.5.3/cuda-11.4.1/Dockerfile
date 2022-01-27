@@ -2,9 +2,10 @@ FROM nvidia/cuda:11.4.1-devel-ubuntu20.04
 
 ARG OPENCV_VERSION=4.5.3
 
+# https://serverfault.com/a/992421
 RUN apt-get update && apt-get upgrade -y &&\
     # Install build tools, build dependencies and python
-    apt-get install -y \
+    DEBIAN_FRONTEND=noninteractive TZ=Asia/Seoul apt-get install -y \
 	python3-pip \
         build-essential \
         cmake \
